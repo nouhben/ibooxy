@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "40188660291",
+    "firebase_url": "https://ibookxy.firebaseio.com",
+    "project_id": "ibookxy",
+    "storage_bucket": "ibookxy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40188660291:android:d7d97e60d1dca0facae2f6",
+        "android_client_info": {
+          "package_name": "com.example.ibooxy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40188660291-3qnclg7iik9i3jj7m0it4jat2jtithtd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZpLK0zqdp_J3LjfsMbp2P5yRJ09Gq2ZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40188660291-3qnclg7iik9i3jj7m0it4jat2jtithtd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
