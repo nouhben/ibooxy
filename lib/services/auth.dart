@@ -30,7 +30,7 @@ class AuthService {
   }
 
   //sigin with mail and pass
-  Future signInWithEmailAndPassword(String email, String password) async {
+  Future signInWithEmailAndPass(String email, String password) async {
     try {
       AuthResult result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);

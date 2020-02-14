@@ -20,9 +20,9 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[500],
+      backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: Colors.blueGrey[500],
         elevation: 0.0,
         title: Text(
           'Sign in to Booxy',
@@ -35,7 +35,7 @@ class _SignInState extends State<SignIn> {
             icon: Icon(Icons.person_outline),
             label: Text(
               'Register',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.black38),
             ),
           )
         ],
@@ -50,20 +50,18 @@ class _SignInState extends State<SignIn> {
               TextFormField(
                 validator: (val) => val.isEmpty ? 'Incorrect email' : null,
                 onChanged: (val) {
-                  setState(() => this.email = val);
+                  setState(() => email = val);
                 },
               ),
               SizedBox(height: 20.0),
               TextFormField(
-                validator: (val) {
-                  if (val.isEmpty) {
-                    setState(() => error = 'Empty password');
-                  } else {}
-                },
-                style: TextStyle(color: Colors.white),
+                validator: (val) => val.length < 6
+                    ? 'Enter a password 6 plus chars long'
+                    : null,
+                style: TextStyle(color: Colors.red),
                 obscureText: true,
                 onChanged: (val) {
-                  setState(() => this.password = val);
+                  setState(() => password = val);
                 },
               ),
               SizedBox(height: 20.0),
@@ -74,9 +72,27 @@ class _SignInState extends State<SignIn> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () async {
-                  print(this.email);
-                  print(this.password);
+                  if (_formKey.currentState.validate()) {
+                    //valid form send request to firebase
+                    dynamic result =
+                        await _auth.signInWithEmailAndPass(email, password);
+                    if (result == null) {
+                      setState(() {
+                        setState(() {
+                          error = 'Could not sign in';
+                        });
+                      });
+                    }
+                  }
                 },
+              ),
+              SizedBox(height: 10.0),
+              Text(
+                error,
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 13.0,
+                ),
               ),
             ],
           ),

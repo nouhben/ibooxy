@@ -17,12 +17,13 @@ class _RegisterState extends State<Register> {
   String email = '';
   String password = '';
   String error = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[500],
+      backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: Colors.blueGrey[500],
         elevation: 0.0,
         title: Text(
           'Sign up to Booxy',
@@ -50,18 +51,18 @@ class _RegisterState extends State<Register> {
               TextFormField(
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
-                  setState(() => this.email = val);
+                  setState(() => email = val);
                 },
               ),
               SizedBox(height: 20.0),
               TextFormField(
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black87),
                 obscureText: true,
                 validator: (val) => val.length < 6
                     ? 'Enter a password 6 plus chars long'
                     : null,
                 onChanged: (val) {
-                  setState(() => this.password = val);
+                  setState(() => password = val);
                 },
               ),
               SizedBox(height: 20.0),
