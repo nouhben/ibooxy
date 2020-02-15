@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ibooxy/screens/authenticate/register.dart';
 import 'package:ibooxy/services/auth.dart';
+import 'package:ibooxy/util/constants.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -20,12 +20,13 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[50],
+      backgroundColor: lighThemeColors,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[500],
+        backgroundColor: lighThemeColors,
         elevation: 0.0,
         title: Text(
           'Sign in to Booxy',
+          style: TextStyle(color: darkThemeColors),
         ),
         actions: <Widget>[
           FlatButton.icon(
@@ -35,7 +36,7 @@ class _SignInState extends State<SignIn> {
             icon: Icon(Icons.person_outline),
             label: Text(
               'Register',
-              style: TextStyle(color: Colors.black38),
+              style: TextStyle(color: darkThemeColors),
             ),
           )
         ],
@@ -48,6 +49,7 @@ class _SignInState extends State<SignIn> {
             children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val.isEmpty ? 'Incorrect email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
@@ -55,6 +57,7 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Password'),
                 validator: (val) => val.length < 6
                     ? 'Enter a password 6 plus chars long'
                     : null,
@@ -66,10 +69,14 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                color: Colors.pink[400],
+                color: buttonsColor,
                 child: Text(
-                  'Sin In',
-                  style: TextStyle(color: Colors.white),
+                  'Sign In',
+                  style: TextStyle(
+                    color: lighThemeColors,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 18.0,
+                  ),
                 ),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ibooxy/services/auth.dart';
+import 'package:ibooxy/util/constants.dart';
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
@@ -7,7 +8,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: lighThemeColors,
         title: Text('Home'),
         elevation: 0.0,
         actions: <Widget>[

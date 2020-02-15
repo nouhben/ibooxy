@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ibooxy/services/auth.dart';
+import 'package:ibooxy/util/constants.dart';
 
 class Register extends StatefulWidget {
   final Function toggleView;
@@ -21,12 +22,13 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[50],
+      backgroundColor: lighThemeColors,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[500],
+        backgroundColor: lighThemeColors,
         elevation: 0.0,
         title: Text(
           'Sign up to Booxy',
+          style: TextStyle(color: darkThemeColors),
         ),
         actions: <Widget>[
           FlatButton.icon(
@@ -36,7 +38,7 @@ class _RegisterState extends State<Register> {
             icon: Icon(Icons.person_outline),
             label: Text(
               'Sign In',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: darkThemeColors),
             ),
           )
         ],
@@ -49,6 +51,7 @@ class _RegisterState extends State<Register> {
             children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
@@ -56,7 +59,8 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
-                style: TextStyle(color: Colors.black87),
+                decoration: textInputDecoration.copyWith(hintText: 'Password'),
+                style: TextStyle(color: darkThemeColors),
                 obscureText: true,
                 validator: (val) => val.length < 6
                     ? 'Enter a password 6 plus chars long'
@@ -67,10 +71,13 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                color: Colors.pink[400],
+                color: buttonsColor,
                 child: Text(
                   'Register ',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: lighThemeColors,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w800),
                 ),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
