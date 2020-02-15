@@ -14,4 +14,9 @@ class DatabaseService {
       'strength': strength,
     });
   }
+
+  // get booxs stream
+  Stream<QuerySnapshot> get booxs {
+    return booxCollection.snapshots();
+  }
 }
