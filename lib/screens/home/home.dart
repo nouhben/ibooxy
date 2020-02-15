@@ -1,11 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ibooxy/models/boox.dart';
 import 'package:ibooxy/screens/home/boox_list.dart';
 import 'package:ibooxy/services/auth.dart';
-import 'package:ibooxy/util/constants.dart';
 
 import 'package:ibooxy/services/database.dart';
+import 'package:ibooxy/util/constants.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -28,6 +28,30 @@ class Home extends StatelessWidget {
               label: Text('Logout'),
             ),
           ],
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          buttonBackgroundColor: darkThemeColors,
+          backgroundColor: lighThemeColors,
+          items: <Widget>[
+            Icon(
+              Icons.add,
+              size: 35.0,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.list,
+              size: 35.0,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.compare_arrows,
+              size: 35.0,
+              color: Colors.white,
+            ),
+          ],
+          onTap: (index) {
+            //Handle button tap
+          },
         ),
         body: BooxList(),
       ),

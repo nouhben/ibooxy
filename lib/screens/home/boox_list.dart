@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ibooxy/models/boox.dart';
+import 'package:ibooxy/screens/home/boox_tile.dart';
 import 'package:provider/provider.dart';
 
 class BooxList extends StatefulWidget {
@@ -16,6 +17,11 @@ class _BooxListState extends State<BooxList> {
       print(boox.sugars);
       print(boox.strength);
     });
-    return Container();
+    return ListView.builder(
+      itemCount: booxs.length,
+      itemBuilder: (context, index) {
+        return BooxTile(boox: booxs[index]);
+      },
+    );
   }
 }
