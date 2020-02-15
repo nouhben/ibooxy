@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ibooxy/models/boox.dart';
 import 'package:provider/provider.dart';
 
 class BooxList extends StatefulWidget {
@@ -10,10 +10,12 @@ class BooxList extends StatefulWidget {
 class _BooxListState extends State<BooxList> {
   @override
   Widget build(BuildContext context) {
-    final booxs = Provider.of<QuerySnapshot>(context);
-    for (var item in booxs.documents) {
-      print(item.data);
-    }
+    final booxs = Provider.of<List<Boox>>(context);
+    booxs.forEach((boox) {
+      print(boox.name);
+      print(boox.sugars);
+      print(boox.strength);
+    });
     return Container();
   }
 }

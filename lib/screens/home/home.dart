@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:ibooxy/models/boox.dart';
 import 'package:ibooxy/screens/home/boox_list.dart';
 import 'package:ibooxy/services/auth.dart';
 import 'package:ibooxy/util/constants.dart';
@@ -11,7 +12,7 @@ class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+    return StreamProvider<List<Boox>>.value(
       value: DatabaseService().booxs, //the stram
       child: Scaffold(
         appBar: AppBar(
