@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ibooxy/models/boox.dart';
+import 'package:ibooxy/models/user.dart';
 
 class DatabaseService {
   final String uid;
@@ -30,5 +31,20 @@ class DatabaseService {
   // get booxs stream
   Stream<List<Boox>> get booxs {
     return booxCollection.snapshots().map(_booxListFromSnapshot);
+  }
+
+  //userData from a snapshot
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData(
+      uid: uid,
+      name: snapshot.data['name'],
+      sugars: snapshot.data['sugars'],
+      strength: snapshot.data['strength'],
+    );
+  }
+
+  //get user document stream
+  Stream<UserData> get userData {
+    return booxCollection.document(uid).snapshots().map(_userDataFromSnapshot);
   }
 }
