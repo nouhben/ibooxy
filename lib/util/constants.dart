@@ -14,10 +14,10 @@ const textInputDecoration = InputDecoration(
   enabledBorder: OutlineInputBorder(
     borderSide: BorderSide(
       color: Color(0xff0B1824),
-      width: 1.0,
+      width: 0.0,
     ),
   ),
   focusedBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Color(0xff0B1824), width: 2.0),
+    borderSide: BorderSide(color: Color(0xff0B1824), width: 1.0),
   ),
 );

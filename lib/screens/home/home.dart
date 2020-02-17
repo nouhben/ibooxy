@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ibooxy/models/boox.dart';
 import 'package:ibooxy/screens/home/boox_list.dart';
+import 'package:ibooxy/screens/home/settings_form.dart';
 import 'package:ibooxy/services/auth.dart';
 
 import 'package:ibooxy/services/database.dart';
@@ -18,7 +19,7 @@ class Home extends StatelessWidget {
           builder: (context) {
             return Container(
               padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-              child: Text('bottom sheet'),
+              child: SettingsForm(),
             );
           });
     }
